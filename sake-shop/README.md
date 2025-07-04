@@ -116,7 +116,45 @@ npm run build
 
 # 本番サーバー起動
 npm start
+
+# GitHub Pages用静的エクスポート
+npm run export
 ```
+
+## 🌐 GitHub Pagesデプロイ
+
+このプロジェクトはGitHub Actionsを使用してGitHub Pagesに自動デプロイされます。
+
+### デプロイ手順
+
+1. **GitHubリポジトリの作成**
+   - GitHubで新しいリポジトリを作成
+   - リポジトリ名は `sake-shop` を推奨
+
+2. **コードのプッシュ**
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git branch -M main
+   git remote add origin https://github.com/YOUR_USERNAME/sake-shop.git
+   git push -u origin main
+   ```
+
+3. **GitHub Pages設定**
+   - リポジトリの Settings → Pages に移動
+   - Source を "GitHub Actions" に設定
+
+4. **自動デプロイ**
+   - `main`ブランチにプッシュすると自動的にデプロイが開始
+   - Actions タブでデプロイ状況を確認可能
+   - デプロイ完了後、`https://YOUR_USERNAME.github.io/sake-shop/` でアクセス可能
+
+### デプロイ設定ファイル
+
+- `.github/workflows/deploy.yml` - GitHub Actionsワークフロー
+- `next.config.js` - GitHub Pages用の設定
+- `public/.nojekyll` - Jekyll無効化ファイル
 
 ## 📱 レスポンシブ対応
 
